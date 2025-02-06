@@ -1,4 +1,4 @@
-name: Build, Push and Deploy
+name: Build and Deploy
 
 on:
   push:
@@ -12,17 +12,6 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
-
-    - name: Install dependencies
-      run: npm install
-
-    - name: Build project
-      run: npm run build
 
     - name: Deploy to EC2
       uses: appleboy/ssh-action@v0.1.3
